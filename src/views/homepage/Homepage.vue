@@ -1,6 +1,13 @@
 <template>
   <div id="home">
     <nav-bar class="nav-bar"><div slot="center">甜甜屋</div></nav-bar>
+    <!-- <swiper>
+      <swiper-item v-for="(item,index) of banners" :key="index">
+          <a :href="item.link">
+            <img :src="item.image" alt="">
+          </a>
+      </swiper-item>
+    </swiper> -->
     <tab-control v-show="isTabFixed" class="fixed" @itemClick="tabClick"
                  :titles="['创意网红', '当日达', '热卖','全部']"></tab-control>
     <scroll class="content"
@@ -14,9 +21,9 @@
         <home-swiper :banners="banners"
                      ref="hSwiper"></home-swiper>
         <feature-view :features="recommends"></feature-view>
-        <recommend-view></recommend-view>
+        <recommend-view :recommends="recommend"></recommend-view>
         <tab-control @itemClick="tabClick"
-                     :titles="['创意网红', '当日达', '热卖','全部']"
+                     :titles="['人群推荐', '品牌馆', '口味推荐','人气推荐']"
                      ref="tabControl"></tab-control>
         <goods-list :goods-list="showGoodsList"></goods-list>
       </div>
@@ -36,9 +43,9 @@
   import FeatureView from './childComps/FeatureView'
   import RecommendView from './childComps/RecommendView'
   import GoodsList from './childComps/GoodsList'
+  import {Swiper,SwiperItem} from '../../components/common/swiper'
   import {getHomeMultidata, getHomeData, RECOMMEND, BANNER} from "../../network/homepage";
   import {NEW, POP, SELL, BACKTOP_DISTANCE} from "../../common/const";
-
   export default {
 		name: "Homepage",
     components: {
@@ -50,6 +57,7 @@
       FeatureView,
       RecommendView,
       GoodsList,
+        
     },
     data() {
 		  return {
@@ -123,8 +131,9 @@
        */
       getMultiData() {
         getHomeMultidata().then(res => {
-          this.banners = res.data[BANNER].list
-          this.recommends = res.data[RECOMMEND].list
+          console.log(res)
+          this.banners = res.data[BANNER]
+          this.recommends = res.data[RECOMMEND]
           // 下次更新DOM时,获取新的tabOffsetTop值(不保险,可以在updated钩子中获取)
           this.$nextTick(() => {
             this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop
@@ -133,7 +142,9 @@
       },
       getHomeProducts(type) {
         getHomeData(type, this.goodsList[type].page).then(res => {
-          const goodsList = res.data.list;
+          console.log("======================")
+          console.log(res)
+          const goodsList = res.banners;
           this.goodsList[type].list.push(...goodsList)
           this.goodsList[type].page += 1
 
@@ -147,13 +158,16 @@
 <style scoped>
   #home {
     /*position: relative;*/
-    height: 100vh;
+    height: 100px;
+    /* padding-top:55px ; */
   }
 
   .nav-bar {
+    position: fixed;
     background-color: var(--color-tint);
-    font-weight: 700;
+    font-weight: 900;
     color: #fff;
+   
   }
 
   .content {

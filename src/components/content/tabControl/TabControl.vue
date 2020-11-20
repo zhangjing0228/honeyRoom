@@ -3,7 +3,7 @@
     <div class="tab-control-item"
          :class="{active: currentIndex === index}"
          @click="itemClick(index)"
-         v-for="(item, index) in titles">
+         v-for="(item, index) in titles" :key="index">
       <span>{{item}}</span>
     </div>
   </div>
@@ -31,6 +31,7 @@
         this.currentIndex = index;
 
         // 2.发出事件
+        //1.第一个参数:事件的名称(任意取的),第二个参数就是你所要传递的值
         this.$emit('itemClick', index)
       }
     }
