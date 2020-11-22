@@ -43,14 +43,14 @@ export default {
 
         function onComplete(data) {
           // data是具体的定位信息  精准定位
-          //console.log(data);
+          console.log(data);
           self.$store.dispatch("setLocation", data);
           self.$store.dispatch("setAddress", data.formattedAddress);
         }
 
         function onError(data) {
           // 定位出错    非精准定位
-          console.log(data);
+          //console.log(data);
           self.getLngLatLocation();
         }
       });
