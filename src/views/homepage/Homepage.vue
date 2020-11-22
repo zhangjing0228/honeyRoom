@@ -1,6 +1,7 @@
 <template>
   <div id="home">
     <nav-bar class="nav-bar"><div slot="center">甜甜屋</div></nav-bar>
+   
     <!-- <swiper>
       <swiper-item v-for="(item,index) of banners" :key="index">
           <a :href="item.link">
@@ -192,4 +193,5 @@
     right: 10px;
     bottom: 60px;
   }
+   
 </style>
