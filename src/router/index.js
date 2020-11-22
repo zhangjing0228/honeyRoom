@@ -4,7 +4,7 @@ import Cart from '../views/shopcart/Cart.vue';
 import Pay from '../views/shopcart/Pay.vue'
 import ProductDetail from '../views/shopcart/ProductDetail.vue'
 import Dingdan from '../views/shopcart/Dingdan.vue'
-
+import Flower from '../views/flowers/Flower.vue'
 
 
 const Homepage = () => import('../views/homepage/Homepage');
@@ -15,6 +15,10 @@ const Detail = () => import('../views/detail/Detail')
 
 Vue.use(VueRouter);
 const routes = [
+  {
+    path:'/flower',
+    component:Flower
+  },
   {
     path: '',
     redirect: '/homepage'

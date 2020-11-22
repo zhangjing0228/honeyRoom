@@ -64,7 +64,9 @@
 		    banners: [],
         recommends: [],
         goodsList: {
-          'pop': {page: 1, list: []},
+          'pop': {page: 1, list: [
+            
+          ]},
           'new': {page: 1, list: []},
           'sell': {page: 1, list: []}
         },
@@ -79,7 +81,7 @@
 		    return this.goodsList[this.currentType].list
       }
     },
-    created() {
+    mounted() {
       console.log('创建Home');
       // 1.请求多个数据
       this.getMultiData()
