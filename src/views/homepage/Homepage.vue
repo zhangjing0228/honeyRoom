@@ -200,10 +200,7 @@
     color: #fff;
    
   } */
-  .mint-swipe, .mint-swipe-items-wrap{
-    
-  }
-
+  
  .sousuo{
   margin: 10px auto;
   position: fixed;

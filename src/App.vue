@@ -4,8 +4,8 @@
       <router-view></router-view>
     </keep-alive>
     <main-tab-bar></main-tab-bar>
-    <icon></icon>
-    <svg-icon></svg-icon>
+    <!-- <icon></icon>
+    <svg-icon></svg-icon> -->
   </div>
 </template>
 

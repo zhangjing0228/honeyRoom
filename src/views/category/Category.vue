@@ -23,7 +23,7 @@
     <!-- 左边导航栏 -->
     <div class="left" style="position:fixed;margin:41px 0">
    <mt-navbar class="navbar" v-model="classabc">
-    <mt-tab-item id="1">人气推荐</mt-tab-item>
+    <!-- <mt-tab-item id="1">人气推荐</mt-tab-item> -->
     <mt-tab-item id="2">按品牌</mt-tab-item> 
     <mt-tab-item id="3">按口味</mt-tab-item>
     <mt-tab-item id="4">按人群</mt-tab-item>
@@ -35,7 +35,7 @@
 <mt-tab-container v-model="classabc">
   <!-- 人气推荐面板 -->
 
-  <mt-tab-container-item id="1" >
+  <!-- <mt-tab-container-item id="1" >
     <p class="roof">————人气推荐———</p>
     <div id="moods">
 <router-link :to="{path:'/Page', query:{ cid: t.cid}}" v-for="(t,i) of classfont" :key="i">
@@ -51,16 +51,23 @@
 
 
     </div>
-  </mt-tab-container-item>
+  </mt-tab-container-item> -->
   <!-- 按品牌面板 -->
   <mt-tab-container-item id="2">
     <p class="roof">————按品牌———</p>
     <div class="brand">
 
-<router-link to='/' v-for="(t,i) of classwill" :key="i">
+<router-link to='/'>
 <div class="brand1" >
-<img :src="t.brand_img">
-<p class="wcenter f10">{{t.brand}}</p>
+  <img src="../../assets/yangjian.img/brand_img/timg4.jpg">
+   <p class="wcenter f10">西林烘培</p>
+</div>
+</router-link>
+
+<router-link to='/'>
+<div class="brand1" >
+  <img src="../../assets/yangjian.img/brand_img/timg.jpg">
+   <p class="wcenter f10">拾艺青莲</p>
 </div>
 </router-link>
 
@@ -71,7 +78,7 @@
     <div id="moods">
     <div class="kouwei">
         <div class="ruzhixq">
-          <router-link to="/totalrenqun">
+          <router-link to="/totalkouwei">
           <img class="img3" src="../../assets/zjimg/1ruzhi.png">
           <p class="p">乳脂类</p>
           <span>乳脂蛋糕采用进口品牌的优质原料，纯手工精制而成。</span>
@@ -79,19 +86,26 @@
         </div>
         <hr>
         <div>
+           <router-link to="/totalkouwei">
           <img class="img3" src="../../assets/zjimg/2musi.png">
           <p class="p">慕斯类</p>
           <span>慕斯蛋糕口感和风味的各种辅料，冷冻后食用其味无穷，成为蛋糕中的极品</span>
+           </router-link>
         </div>
         <hr>
         <div>
+           <router-link to="/totalkouwei">
           <img class="img3" src="../../assets/zjimg/3shuiguo.png">
           <p class="p">水果类</p>
           <span>浓浓的奶香味与清新甜蜜的水果相搭配出来的浓郁甜美气息，蕴藏着甜蜜浪漫的温馨情怀，奶油的浓郁奶相结合水果的酸甜，恰到好处的口味与口感的结合，让您的感官与知觉完全得到满足。</span>
+           </router-link>
           <hr>
         </div>
+        
     </div>
     </div>
+
+    
   </mt-tab-container-item>
   <mt-tab-container-item id="4">
   <p class="roof">————按人群———</p>
@@ -225,7 +239,7 @@ export default {
   data() {
     return {
       selectedTab: "fl",
-      classabc: "1",
+      classabc: "2",
       classfont: [],
       classwill: []
     };
@@ -346,6 +360,7 @@ div {
   color: rgb(122, 119, 119);
   font-weight: 600;
   margin: 15px;
+  position: fixed;
 }
 
 /* 人气推荐图片样式 */
@@ -389,11 +404,12 @@ div {
   display: flex;
   flex-wrap: wrap;
 }
-.brand1 {
-  width: 88px;
-  height: 88px;
-  border: 1px solid rgb(200, 200, 200);
-  margin: 0 0 8px 8px;
+.brand1{
+  width: 70%;
+  height:70%;
+  /* border: 1px solid rgb(200, 200, 200); */
+  margin: 30px 0 0 40px;
+  
 }
 .brand1 img {
   height: 75%;
@@ -401,6 +417,8 @@ div {
 }
 .brand1 p {
   color: rgb(102, 102, 102);
+  font-size: 18px;
+  font-weight: 900;
 }
 /* ============================== */
 body {
@@ -425,6 +443,7 @@ body {
   font-weight: bold;
   margin-top: 5px;
   margin-bottom: 10px;
+ 
 }
 .kouwei span {
   font-size: 15px;
