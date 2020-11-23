@@ -1,6 +1,15 @@
 <template>
   <div id="home">
-    <nav-bar class="nav-bar"><div slot="center">甜甜屋</div></nav-bar>
+    
+      <div class="sousuo">
+      <div>
+        <input type="text" placeholder="请输入要搜索的信息">
+      </div>
+      <div>
+        <button>搜索</button>
+      </div>
+    </div>
+   
    
     <!-- <swiper>
       <swiper-item v-for="(item,index) of banners" :key="index">
@@ -9,8 +18,27 @@
           </a>
       </swiper-item>
     </swiper> -->
-    <tab-control v-show="isTabFixed" class="fixed" @itemClick="tabClick"
-                 :titles="['创意网红', '当日达', '热卖','全部']"></tab-control>
+    <!-- <tab-control v-show="isTabFixed" class="fixed" @itemClick="tabClick"
+                 :titles="['创意网红', '当日达', '热卖','全部']"></tab-control> -->
+
+    <!-- <div>
+    <div class="dswiper">
+      <mt-swipe class="swiper">
+        <mt-swipe-item >
+          <img src="../../assets/img/swiper/timg (1).jpg" />
+        </mt-swipe-item>
+      </mt-swipe>
+    </div>
+    
+  </div> -->
+
+
+      <mt-swipe :auto="4000" class="dswiper">
+        <mt-swipe-item><img src="../../assets/img/swiper/u=2842627706,1511339593&fm=26&gp=0.jpg" alt=""></mt-swipe-item>
+        <mt-swipe-item>2</mt-swipe-item>
+        <mt-swipe-item>3</mt-swipe-item>
+      </mt-swipe>
+
     <scroll class="content"
             ref="scroll"
             @scroll="contentScroll"
@@ -165,14 +193,48 @@
     /* padding-top:55px ; */
   }
 
-  .nav-bar {
+  /* .nav-bar {
     position: fixed;
     background-color: var(--color-tint);
     font-weight: 900;
     color: #fff;
    
+  } */
+  .mint-swipe, .mint-swipe-items-wrap{
+    
   }
 
+ .sousuo{
+  margin: 10px auto;
+  position: fixed;
+  display: flex;
+}
+.sousuo>div{
+  float: left;
+}
+
+.sousuo>div:first-child>input{
+  border: 2px solid #ffc0cb;
+  height: 25px;
+  width: 300px;
+  border-radius: 8px;
+  padding:15px;
+  outline: none;
+}
+.sousuo>div:first-child>input::-webkit-input-placeholder{
+  color: #ccc;
+  font-size: 6px;
+  padding: 15px;
+}
+.sousuo>div:last-child>button{
+  border: 0;
+  background-color: #ffc0cb;
+  color: #fff;
+  height: 35px;
+  width: 50px;
+  border-radius: 8px;
+  margin-left: 5px;
+}
   .content {
     position: absolute;
     top: 44px;

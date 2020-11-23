@@ -1,5 +1,5 @@
 <template>
-    <div id="hy-swiper">
+    <!-- <div id="hy-swiper">
       <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
         <slot></slot>
       </div>
@@ -10,7 +10,19 @@
           <div v-for="(item, index) in slideCount" class="indi-item" :class="{active: index === currentIndex-1}" :key="index"></div>
         </slot>
       </div>
+    </div> -->
+
+  <!-- 轮播图 -->
+  <div>
+    <div class="dswiper">
+      <mt-swipe class="swiper">
+        <mt-swipe-item >
+          <img src="../../../assets/img/swiper/timg (1).jpg" />
+        </mt-swipe-item>
+      </mt-swipe>
     </div>
+    
+  </div>
 </template>
 
 <script>
@@ -210,7 +222,7 @@
 </script>
 
 <style scoped>
-  #hy-swiper {
+  /* #hy-swiper {
     overflow: hidden;
     position: relative;
   }
@@ -241,5 +253,35 @@
 
   .indi-item.active {
     background-color: rgba(212,62,46,1.0);
-  }
+  } */
+
+  .dswiper{
+   margin-top: 150px;
+}
+#index .swiper {
+  height: 180px;
+  width: 100%;
+}
+.img {
+  width: 100%;
+  height: 100%;
+}
 </style>
+
+
+<script>
+export default {
+  data(){
+    return{
+      indexSwiper:[
+        {
+          pic:'../../../assets/img/swiper/timg (1).jpg'
+        },
+        {
+          pic:'../../../assets/img/swiper/timg.jpg'
+        }
+      ]
+    }
+  }
+}
+</script>
